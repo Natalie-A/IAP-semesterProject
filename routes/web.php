@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+    
 });
+Route::get('/userregister', function () {
+    return view('userregister');
+    
+});
+Route::get('/adminregister', function () {
+    return view('adminregister');
+    
+});
+Route::post("users",[UsersController::class,'getData']);
+Route::post('admin',[AdminController::class,'getData']);
+
+//Route::view('/',"welcome");
+//Route::view('/register',"register");
+//Route::post('/store',"register");
